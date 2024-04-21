@@ -22,4 +22,11 @@ public interface SysUserService extends IService<SysUser> {
      * @return
      */
     LoginVO login(LoginDTO loginDTO);
+
+
+    /**
+     * 实现账号退出即将 token 从缓存中删去
+     * @param token
+     */
+    void logout(String token);
 }

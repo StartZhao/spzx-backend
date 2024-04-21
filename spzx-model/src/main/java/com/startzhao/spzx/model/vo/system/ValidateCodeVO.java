@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "验证码响应结果实体类")
-public class ValidateCodeVo {
+public class ValidateCodeVO {
 
     @Schema(description = "验证码key")
     private String codeKey ;        // 验证码的key
