@@ -32,4 +32,22 @@ public class SysRoleController {
         PageResult<SysRole> pageResult = sysRoleService.findByPage(sysRoleDTO, pageNum, pageSize);
         return Result.build(pageResult, ResultCodeEnum.SUCCESS);
     }
+
+    @PostMapping("/saveSysRole")
+    public Result saveSysRole(@RequestBody SysRole sysRole) {
+        return sysRoleService.saveSysRole(sysRole);
+    }
+
+    @PutMapping("/updateSysRole")
+    public Result updateSysRole(@RequestBody SysRole sysRole) {
+        return sysRoleService.updateSysRole(sysRole);
+    }
+
+
+    @DeleteMapping("/deleteSysRole/{roleId}")
+    public Result deleteSysRole(@PathVariable(value = "roleId") Long roleId) {
+        return sysRoleService.deleteSysRole(roleId);
+    }
+
+
 }

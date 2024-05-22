@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.startzhao.spzx.model.dto.system.SysRoleDTO;
 import com.startzhao.spzx.model.entity.system.SysRole;
 import com.startzhao.spzx.model.vo.common.PageResult;
+import com.startzhao.spzx.model.vo.common.Result;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,4 +28,26 @@ public interface SysRoleService extends IService<SysRole> {
      * @return
      */
     PageResult<SysRole> findByPage(SysRoleDTO sysRoleDTO, Integer pageNum, Integer pageSize);
+
+    /**
+     *
+     * 添加角色
+     * @param sysRole
+     * @return
+     */
+    Result saveSysRole(SysRole sysRole);
+
+    /**
+     * 修改角色
+     * @param sysRole
+     * @return
+     */
+    Result updateSysRole(SysRole sysRole);
+
+    /**
+     * 删除角色信息
+     * @param roleId
+     * @return
+     */
+    Result deleteSysRole(Long roleId);
 }

@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da8aeaa0-9656-4cff-9d26-23fcf9a6bf73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysRoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysRoleMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/common/PageResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/ManagerApplicaion.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/ManagerApplicaion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/dto/system/SysRoleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/dto/system/SysRoleDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysRoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysRoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,9 @@
       <workItem from="1713597494387" duration="12865000" />
       <workItem from="1713686308209" duration="13074000" />
       <workItem from="1713864146714" duration="8812000" />
-      <workItem from="1716101167128" duration="5394000" />
+      <workItem from="1716101167128" duration="6347000" />
+      <workItem from="1716279416732" duration="4555000" />
+      <workItem from="1716367857174" duration="5229000" />
     </task>
     <task id="LOCAL-00001" summary="项目环境初始化&#10;用户登录功能部分完成">
       <created>1713686520390</created>
@@ -167,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713701541807</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="角色列表显示业务完成">
+      <created>1716108264088</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716108264088</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,15 +182,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="项目环境初始化&#10;用户登录功能部分完成" />
     <MESSAGE value="&#10;用户登录功能完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;用户登录功能完成" />
+    <MESSAGE value="角色列表显示业务完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="角色列表显示业务完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysRoleController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,6 +2,7 @@ package com.startzhao.spzx.manager.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.startzhao.spzx.model.entity.system.SysRole;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -15,4 +16,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SysRoleMapper extends BaseMapper<SysRole> {
+
+    @Insert("INSERT INTO sys_role(role_name,role_code) VALUES (#{roleName},#{roleCode})")
+    int insert(SysRole sysRole);
 }
