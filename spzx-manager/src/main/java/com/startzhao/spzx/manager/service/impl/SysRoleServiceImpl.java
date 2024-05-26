@@ -1,9 +1,11 @@
 package com.startzhao.spzx.manager.service.impl;
 
+import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.startzhao.spzx.common.exception.StartZhaoException;
 import com.startzhao.spzx.manager.mapper.SysRoleMapper;
 import com.startzhao.spzx.manager.service.SysRoleService;
 import com.startzhao.spzx.model.dto.system.SysRoleDTO;
@@ -47,7 +49,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     public PageResult<SysRole> findByPage(SysRoleDTO sysRoleDTO, Integer pageNum, Integer pageSize) {
         IPage<SysRole> page = new Page<>(pageNum, pageSize);
         QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like("role_name", sysRoleDTO.getRoleName()).orderByDesc("id");
+        queryWrapper.eq("is_deleted", 0).like("role_name", sysRoleDTO.getRoleName()).orderByDesc("id");
         page = sysRoleMapper.selectPage(page, queryWrapper);
         List<SysRole> sysRoleList = page.getRecords();
         long total = page.getTotal();
@@ -68,6 +70,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         if (StringUtils.isEmpty(roleName) || StringUtils.isEmpty(roleCode)) {
             return Result.build(null, ResultCodeEnum.FAIL);
         }
+        sysRole.setCreateTime(DateTime.now());
+        sysRole.setUpdateTime(DateTime.now());
         sysRoleMapper.insert(sysRole);
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
@@ -83,8 +87,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         String roleName = sysRole.getRoleName();
         String roleCode = sysRole.getRoleCode();
         if (StringUtils.isEmpty(roleName) || StringUtils.isEmpty(roleCode)) {
-            return Result.build(null, ResultCodeEnum.FAIL);
+            throw new StartZhaoException(500,"角色名或角色编码为空");
         }
+        sysRole.setUpdateTime(DateTime.now());
         sysRoleMapper.updateById(sysRole);
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }

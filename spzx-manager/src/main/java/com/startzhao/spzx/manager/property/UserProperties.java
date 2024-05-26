@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
- * ClassName: UserProperty
+ * ClassName: UserProperties
  * Package: com.startzhao.spzx.manager.property
  * Description: 用户属性配置类
  *
@@ -16,7 +16,7 @@ import java.util.List;
  */
 @ConfigurationProperties(prefix = "spzx.auth")
 @Data
-public class UserProperty {
+public class UserProperties {
 
     private List<String> noAuthUrls;
 }

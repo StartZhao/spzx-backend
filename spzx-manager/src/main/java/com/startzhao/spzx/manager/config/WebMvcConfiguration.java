@@ -2,7 +2,7 @@ package com.startzhao.spzx.manager.config;
 
 
 import com.startzhao.spzx.manager.interceptor.LoginAuthInterceptor;
-import com.startzhao.spzx.manager.property.UserProperty;
+import com.startzhao.spzx.manager.property.UserProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -24,13 +24,13 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
     @Autowired
     LoginAuthInterceptor loginAuthInterceptor;
     @Autowired
-    UserProperty userProperty;
+    UserProperties userProperties;
 
     // 注册拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginAuthInterceptor)
-                .excludePathPatterns(userProperty.getNoAuthUrls())
+                .excludePathPatterns(userProperties.getNoAuthUrls())
                 .addPathPatterns("/**");
     }
 
