@@ -7,9 +7,13 @@ import com.startzhao.spzx.model.entity.system.SysRole;
 import com.startzhao.spzx.model.vo.common.PageResult;
 import com.startzhao.spzx.model.vo.common.Result;
 import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
+import org.apache.ibatis.annotations.Param;
 import org.simpleframework.xml.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * ClassName: SysRoleController
@@ -47,6 +51,11 @@ public class SysRoleController {
     @DeleteMapping("/deleteSysRole/{roleId}")
     public Result deleteSysRole(@PathVariable(value = "roleId") Long roleId) {
         return sysRoleService.deleteSysRole(roleId);
+    }
+
+    @GetMapping("/findAllRoles/{userId}")
+    public Result<Map<String,List>> findAllRoles(@PathVariable(value = "userId") Long userId) {
+        return sysRoleService.findAllRoles(userId);
     }
 
 

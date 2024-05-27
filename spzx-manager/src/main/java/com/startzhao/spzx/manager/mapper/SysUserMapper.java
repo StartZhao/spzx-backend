@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.startzhao.spzx.model.entity.system.SysUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * ClassName: SysUserMapper
@@ -17,8 +18,13 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
-    @Insert("INSERT INTO \n" +
-            "sys_user(username, `password`,`name`, phone,avatar,description,create_time,update_time,`status`)\n" +
-            "VALUES(#{userName},#{password},#{name},#{phone},#{avatar},#{description},#{createTime},#{updateTime},#{status})")
-    int insert(SysUser sysUser);
+
+    /**
+     * 根据用户id逻辑删除用户
+     * @param id
+     * @return
+     */
+    @Update("update sys_user set is_deleted = 1 where id = #{id}")
+    int deleteById(Long id);
+
 }

@@ -1,6 +1,7 @@
 package com.startzhao.spzx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.startzhao.spzx.model.dto.system.AssginRoleDTO;
 import com.startzhao.spzx.model.dto.system.SysUserDTO;
 import com.startzhao.spzx.model.entity.system.SysUser;
 import com.startzhao.spzx.model.vo.common.PageResult;
@@ -62,4 +63,11 @@ public interface SysUserService extends IService<SysUser> {
      * @return
      */
     Result deleteSysUserById(Long userId);
+
+    /**
+     * 根据用户id分配角色
+     * @param assginRoleDTO
+     * @return
+     */
+    Result doAssign(AssginRoleDTO assginRoleDTO);
 }

@@ -1,6 +1,7 @@
 package com.startzhao.spzx.manager.controller;
 
 import com.startzhao.spzx.manager.service.SysUserService;
+import com.startzhao.spzx.model.dto.system.AssginRoleDTO;
 import com.startzhao.spzx.model.dto.system.SysUserDTO;
 import com.startzhao.spzx.model.entity.system.SysUser;
 import com.startzhao.spzx.model.vo.common.PageResult;
@@ -44,6 +45,11 @@ public class SysUserController {
     @DeleteMapping("/deleteSysUserById/{userId}")
     public Result deleteSysUserById(@PathVariable Long userId) {
         return sysUserService.deleteSysUserById(userId);
+    }
+
+    @PostMapping("/doAssign")
+    public Result doAssign(@RequestBody AssginRoleDTO assginRoleDTO) {
+        return sysUserService.doAssign(assginRoleDTO);
     }
 
 

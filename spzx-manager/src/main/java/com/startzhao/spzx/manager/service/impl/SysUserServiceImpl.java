@@ -10,10 +10,14 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.startzhao.spzx.common.exception.StartZhaoException;
+import com.startzhao.spzx.manager.mapper.SysRoleUserMapper;
 import com.startzhao.spzx.manager.mapper.SysUserMapper;
+import com.startzhao.spzx.manager.service.SysRoleUserService;
 import com.startzhao.spzx.manager.service.SysUserService;
+import com.startzhao.spzx.model.dto.system.AssginRoleDTO;
 import com.startzhao.spzx.model.dto.system.LoginDTO;
 import com.startzhao.spzx.model.dto.system.SysUserDTO;
+import com.startzhao.spzx.model.entity.system.SysRoleUser;
 import com.startzhao.spzx.model.entity.system.SysUser;
 import com.startzhao.spzx.model.vo.common.PageResult;
 import com.startzhao.spzx.model.vo.common.Result;
@@ -25,8 +29,10 @@ import org.apache.poi.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -46,6 +52,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Autowired
     private SysUserMapper sysUserMapper;
+
+    @Autowired
+    private SysRoleUserService sysRoleUserService;
+    @Autowired
+    private SysRoleUserMapper sysRoleUserMapper;
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -179,6 +190,33 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public Result deleteSysUserById(Long userId) {
         sysUserMapper.deleteById(userId);
         return Result.build(null, ResultCodeEnum.SUCCESS);
+    }
+
+    /**
+     * 根据用户id分配角色
+     * 1、逻辑删除表中原先用户角色关系
+     * TODO：由于多次分配，可能导致一些逻辑删除操作越来越耗时，我想到的是定时物理删除这是已经逻辑删除的用户角色关系
+     * 2、插入新的用户角色关系
+     *
+     * @param assginRoleDTO
+     * @return
+     */
+    @Override
+    @Transactional
+    public Result doAssign(AssginRoleDTO assginRoleDTO) {
+        Long userId = assginRoleDTO.getUserId();
+        sysRoleUserMapper.deleteByUserId(userId);
+        List<SysRoleUser> sysRoleUsers = new ArrayList<>();
+        assginRoleDTO.getRoleIdList().forEach(roleId -> {
+            SysRoleUser sysRoleUser = new SysRoleUser();
+            sysRoleUser.setUserId(userId);
+            sysRoleUser.setRoleId(roleId);
+            sysRoleUsers.add(sysRoleUser);
+        });
+
+        sysRoleUserService.saveBatch(sysRoleUsers,100);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
+
     }
 
 

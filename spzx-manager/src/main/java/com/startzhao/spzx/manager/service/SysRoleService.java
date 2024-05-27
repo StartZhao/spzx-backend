@@ -8,6 +8,9 @@ import com.startzhao.spzx.model.vo.common.PageResult;
 import com.startzhao.spzx.model.vo.common.Result;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * ClassName: SysRoleService
  * Package: com.startzhao.spzx.manager.service
@@ -30,8 +33,8 @@ public interface SysRoleService extends IService<SysRole> {
     PageResult<SysRole> findByPage(SysRoleDTO sysRoleDTO, Integer pageNum, Integer pageSize);
 
     /**
-     *
      * 添加角色
+     *
      * @param sysRole
      * @return
      */
@@ -39,6 +42,7 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 修改角色
+     *
      * @param sysRole
      * @return
      */
@@ -46,8 +50,17 @@ public interface SysRoleService extends IService<SysRole> {
 
     /**
      * 删除角色信息
+     *
      * @param roleId
      * @return
      */
     Result deleteSysRole(Long roleId);
+
+    /**
+     * 查询所有角色
+     *
+     * @param userId
+     * @return
+     */
+    Result<Map<String,List>> findAllRoles(Long userId);
 }
