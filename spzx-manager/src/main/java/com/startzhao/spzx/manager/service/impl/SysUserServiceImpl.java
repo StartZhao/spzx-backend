@@ -211,6 +211,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             SysRoleUser sysRoleUser = new SysRoleUser();
             sysRoleUser.setUserId(userId);
             sysRoleUser.setRoleId(roleId);
+            sysRoleUser.setCreateTime(DateTime.now());
+            sysRoleUser.setUpdateTime(DateTime.now());
             sysRoleUsers.add(sysRoleUser);
         });
 

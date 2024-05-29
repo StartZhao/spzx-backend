@@ -1,16 +1,11 @@
 package com.startzhao.spzx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.startzhao.spzx.model.dto.system.AssginRoleDTO;
-import com.startzhao.spzx.model.dto.system.LoginDTO;
-import com.startzhao.spzx.model.dto.system.SysUserDTO;
 import com.startzhao.spzx.model.entity.system.SysMenu;
-import com.startzhao.spzx.model.entity.system.SysUser;
-import com.startzhao.spzx.model.vo.common.PageResult;
-import com.startzhao.spzx.model.vo.common.Result;
-import com.startzhao.spzx.model.vo.system.LoginVO;
+import com.startzhao.spzx.model.vo.system.SysMenuVO;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * ClassName: SysMenuService
@@ -25,37 +20,46 @@ public interface SysMenuService extends IService<SysMenu> {
 
 
     /**
-     * 保存系统用户
-     * @param sysUser
-     * @return
+     * 保存菜单
+     *
+     * @param sysMenu
      */
-    Result saveSysUser(SysUser sysUser);
+    void saveSysMenu(SysMenu sysMenu);
 
     /**
-     * 修改用户信息
-     * @param sysUser
-     * @return
+     * 修改菜单信息
+     *
+     * @param sysMenu
      */
-    Result updateSysUser(SysUser sysUser);
+    void updateSysMenu(SysMenu sysMenu);
 
     /**
-     * 根据id 删除用户数据
-     * @param userId
+     * 根据id 删除菜单数据
+     * @param id
      * @return
      */
-    Result deleteSysUserById(Long userId);
+    void deleteSysMenuById(Long id);
 
-    /**
-     * 根据用户id分配角色
-     * @param assginRoleDTO
-     * @return
-     */
-    Result doAssign(AssginRoleDTO assginRoleDTO);
 
     /**
      * 菜单分页
      *
      * @return
      */
-    Result<List<SysMenu>> findNodes();
+    List<SysMenu> findNodes();
+
+    /**
+     * 1.查询所有的菜单
+     * 2.通过角色 id 查询该角色对应的菜单
+     *
+     * @param roleId
+     * @return
+     */
+    Map<String, List> findSysRoleMenuByRoleId(Long roleId);
+
+    /**
+     * 根据当前用户动态的获取菜单栏
+     * @return
+     */
+    List<SysMenuVO> findUserMenuList();
 }

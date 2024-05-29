@@ -5,21 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da8aeaa0-9656-4cff-9d26-23fcf9a6bf73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/constant/DeletedStatusConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysMenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysMenuMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysMenuService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysRoleMenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysRoleMenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleMenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/utils/MenuHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/system/SysRoleMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/startzhao/spzx/common/config/Knife4jConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/config/Knife4jConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/startzhao/spzx/common/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-service/src/main/java/com/startzhao/spzx/common/exception/StartZhaoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/exception/StartZhaoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/common-util/src/main/java/com/startzhao/spzx/common/utils/AuthContextUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/utils/AuthContextUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/constant/DeletedStatusConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/constant/DeletedStatusConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysMenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysMenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysMenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysMenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/SysRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysMenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/dto/system/AssginMenuDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/dto/system/AssginMenuDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/system/SysMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/system/SysMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/system/SysMenuVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/system/SysMenuVO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -57,24 +61,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17.0.2",
-    "last_opened_file_path": "D:/Code/Project_Code/spzx/spzx-backend/spzx-backend/spzx-common/src/main/java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.23066843",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.ignored.files",
-    "spring.configuration.checksum": "be9e5345bfc71b6b0fb54801be0507bd"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17.0.2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Code/Project_Code/spzx/spzx-backend/spzx-backend/spzx-common/src/main/java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.23066843&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;e28ce9dd7a5a9426027f147e2a11819c&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -91,6 +95,7 @@
       <recent name="D:\Code\Project_Code\spzx\spzx-backend\spzx-backend\spzx-manager\src\main\java" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.startzhao.spzx.model.entity.system" />
       <recent name="com.startzhao.spzx.manager.service.impl" />
       <recent name="com.startzhao.spzx.manager.service" />
       <recent name="com.startzhao.spzx.manager.controller" />
@@ -181,7 +186,9 @@
       <workItem from="1716872431766" duration="1660000" />
       <workItem from="1716879040152" duration="623000" />
       <workItem from="1716884300125" duration="1320000" />
-      <workItem from="1716885652574" duration="2293000" />
+      <workItem from="1716885652574" duration="5345000" />
+      <workItem from="1716895335560" duration="13112000" />
+      <workItem from="1716943896022" duration="657000" />
     </task>
     <task id="LOCAL-00001" summary="项目环境初始化&#10;用户登录功能部分完成">
       <created>1713686520390</created>
@@ -225,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716824490527</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="进行重新修整了项目结构">
+      <created>1716888205293</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716888205293</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +263,8 @@
     <MESSAGE value="角色相关业务完成" />
     <MESSAGE value="头像上传业务完成" />
     <MESSAGE value="用户相关业务完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="用户相关业务完成" />
+    <MESSAGE value="进行重新修整了项目结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="进行重新修整了项目结构" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

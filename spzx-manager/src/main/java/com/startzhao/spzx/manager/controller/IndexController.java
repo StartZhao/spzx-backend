@@ -1,6 +1,7 @@
 package com.startzhao.spzx.manager.controller;
 
 import com.startzhao.spzx.common.utils.AuthContextUtil;
+import com.startzhao.spzx.manager.service.SysMenuService;
 import com.startzhao.spzx.manager.service.ValidateCodeService;
 import com.startzhao.spzx.model.entity.system.SysUser;
 import com.startzhao.spzx.model.vo.common.Result;
@@ -8,11 +9,14 @@ import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import com.startzhao.spzx.model.vo.system.LoginVO;
 import com.startzhao.spzx.manager.service.SysUserService;
 import com.startzhao.spzx.model.dto.system.LoginDTO;
+import com.startzhao.spzx.model.vo.system.SysMenuVO;
 import com.startzhao.spzx.model.vo.system.ValidateCodeVO;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
+import java.util.List;
 
 /**
  * ClassName: IndexController
@@ -32,6 +36,8 @@ public class IndexController {
     private SysUserService sysUserService;
     @Autowired
     private ValidateCodeService validateCodeService;
+    @Autowired
+    private SysMenuService sysMenuService;
 
     @GetMapping("/logout")
     public Result logout(@RequestHeader(name = "token")String token) {
@@ -55,5 +61,11 @@ public class IndexController {
     public Result<ValidateCodeVO> generateValidateCode() {
         ValidateCodeVO validateCodeVO = validateCodeService.generateValidateCode();
         return Result.build(validateCodeVO, ResultCodeEnum.SUCCESS);
+    }
+
+    @GetMapping("/menus")
+    public Result<List<SysMenuVO>> menus() {
+        List<SysMenuVO> menuList = sysMenuService.findUserMenuList();
+        return Result.build(menuList,ResultCodeEnum.SUCCESS);
     }
 }

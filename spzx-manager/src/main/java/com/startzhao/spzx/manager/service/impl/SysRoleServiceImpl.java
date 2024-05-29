@@ -7,10 +7,14 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.startzhao.spzx.common.exception.StartZhaoException;
 import com.startzhao.spzx.manager.mapper.SysRoleMapper;
+import com.startzhao.spzx.manager.mapper.SysRoleMenuMapper;
 import com.startzhao.spzx.manager.mapper.SysRoleUserMapper;
+import com.startzhao.spzx.manager.service.SysRoleMenuService;
 import com.startzhao.spzx.manager.service.SysRoleService;
+import com.startzhao.spzx.model.dto.system.AssginMenuDTO;
 import com.startzhao.spzx.model.dto.system.SysRoleDTO;
 import com.startzhao.spzx.model.entity.system.SysRole;
+import com.startzhao.spzx.model.entity.system.SysRoleMenu;
 import com.startzhao.spzx.model.entity.system.SysRoleUser;
 import com.startzhao.spzx.model.vo.common.PageResult;
 import com.startzhao.spzx.model.vo.common.Result;
@@ -19,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,6 +48,12 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     @Autowired
     private SysRoleUserMapper sysRoleUserMapper;
+
+    @Autowired
+    private SysRoleMenuMapper sysRoleMenuMapper;
+
+    @Autowired
+    private SysRoleMenuService sysRoleMenuService;
 
 
     /**
@@ -144,5 +155,33 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         });
         data.put("userRoleIds", roleIds);
         return Result.build(data, ResultCodeEnum.SUCCESS);
+    }
+
+    /**
+     * 分配菜单
+     * 1.删除原先角色菜单关系
+     * 2.添加现有关系,分半开关系区别插入
+     * @param assignMenuDTO
+     * @return
+     */
+    @Override
+    @Transactional
+    public Result doAssign(AssginMenuDTO assignMenuDTO) {
+        Long roleId = assignMenuDTO.getRoleId();
+        sysRoleMenuMapper.deleteByRoleId(roleId);
+
+        List<Map<String, Long>> menuIdList = assignMenuDTO.getMenuIdList();
+        List<SysRoleMenu> sysRoleMenus = new ArrayList<>();
+        menuIdList.forEach(map -> {
+            SysRoleMenu sysRoleMenu = new SysRoleMenu();
+            sysRoleMenu.setRoleId(roleId);
+            sysRoleMenu.setMenuId(map.get("id"));
+            sysRoleMenu.setIsHalf(map.get("isHalf"));
+            sysRoleMenu.setCreateTime(DateTime.now());
+            sysRoleMenu.setUpdateTime(DateTime.now());
+            sysRoleMenus.add(sysRoleMenu);
+        });
+        sysRoleMenuService.saveBatch(sysRoleMenus, 100);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 }

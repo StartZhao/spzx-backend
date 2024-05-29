@@ -2,16 +2,15 @@ package com.startzhao.spzx.manager.controller;
 
 import com.startzhao.spzx.manager.service.SysMenuService;
 import com.startzhao.spzx.model.dto.system.AssginRoleDTO;
-import com.startzhao.spzx.model.dto.system.SysUserDTO;
 import com.startzhao.spzx.model.entity.system.SysMenu;
-import com.startzhao.spzx.model.entity.system.SysUser;
-import com.startzhao.spzx.model.vo.common.PageResult;
+import com.startzhao.spzx.model.entity.system.SysMenu;
 import com.startzhao.spzx.model.vo.common.Result;
 import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * ClassName: SysMenuController
@@ -31,27 +30,32 @@ public class SysMenuController {
 
     @GetMapping("/findNodes")
     public Result<List<SysMenu>> findNodes() {
-        return sysMenuService.findNodes();
+        List<SysMenu> sysMenus = sysMenuService.findNodes();
+        return Result.build(sysMenus,ResultCodeEnum.SUCCESS);
     }
 
-    @PostMapping("/saveSysUser")
-    public Result saveSysUser(@RequestBody SysUser sysUser) {
-        return sysMenuService.saveSysUser(sysUser);
+    @PostMapping("/saveSysMenu")
+    public Result saveSysMenu(@RequestBody SysMenu sysMenu) {
+         sysMenuService.saveSysMenu(sysMenu);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 
-    @PutMapping("/updateSysUser")
-    public Result updateSysUser(@RequestBody SysUser sysUser) {
-        return sysMenuService.updateSysUser(sysUser);
+    @PutMapping("/updateById")
+    public Result updateSysMenu(@RequestBody SysMenu sysMenu) {
+         sysMenuService.updateSysMenu(sysMenu);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 
-    @DeleteMapping("/deleteSysUserById/{userId}")
-    public Result deleteSysUserById(@PathVariable Long userId) {
-        return sysMenuService.deleteSysUserById(userId);
+    @DeleteMapping("/removeById/{id}")
+    public Result deleteSysMenuById(@PathVariable Long id) {
+        sysMenuService.deleteSysMenuById(id);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
-    @PostMapping("/doAssign")
-    public Result doAssign(@RequestBody AssginRoleDTO assginRoleDTO) {
-        return sysMenuService.doAssign(assginRoleDTO);
+    @GetMapping("/findSysRoleMenuByRoleId/{roleId}")
+    public Result<Map<String,List>> findSysRoleMenuByRoleId(@PathVariable Long roleId) {
+        Map<String, List> map = sysMenuService.findSysRoleMenuByRoleId(roleId);
+        return Result.build(map,ResultCodeEnum.SUCCESS);
     }
 
 

@@ -2,6 +2,7 @@ package com.startzhao.spzx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.github.pagehelper.PageInfo;
+import com.startzhao.spzx.model.dto.system.AssginMenuDTO;
 import com.startzhao.spzx.model.dto.system.SysRoleDTO;
 import com.startzhao.spzx.model.entity.system.SysRole;
 import com.startzhao.spzx.model.vo.common.PageResult;
@@ -63,4 +64,11 @@ public interface SysRoleService extends IService<SysRole> {
      * @return
      */
     Result<Map<String,List>> findAllRoles(Long userId);
+
+    /**
+     * 分配菜单
+     * @param assignMenuDTO
+     * @return
+     */
+    Result doAssign(AssginMenuDTO assignMenuDTO);
 }

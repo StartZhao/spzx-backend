@@ -2,6 +2,7 @@ package com.startzhao.spzx.manager.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.startzhao.spzx.manager.service.SysRoleService;
+import com.startzhao.spzx.model.dto.system.AssginMenuDTO;
 import com.startzhao.spzx.model.dto.system.SysRoleDTO;
 import com.startzhao.spzx.model.entity.system.SysRole;
 import com.startzhao.spzx.model.vo.common.PageResult;
@@ -58,5 +59,8 @@ public class SysRoleController {
         return sysRoleService.findAllRoles(userId);
     }
 
-
+    @PostMapping("/doAssign")
+    public Result doAssign(@RequestBody AssginMenuDTO assignMenuDTO) {
+        return sysRoleService.doAssign(assignMenuDTO);
+    }
 }

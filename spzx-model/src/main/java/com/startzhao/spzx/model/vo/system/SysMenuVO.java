@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Schema(description = "系统菜单响应结果实体类")
-public class SysMenuVo {
+public class SysMenuVO {
 
     @Schema(description = "系统菜单标题")
     private String title;
@@ -16,6 +16,6 @@ public class SysMenuVo {
     private String name;
 
     @Schema(description = "系统菜单子菜单列表")
-    private List<SysMenuVo> children;
+    private List<SysMenuVO> children;
 
 }

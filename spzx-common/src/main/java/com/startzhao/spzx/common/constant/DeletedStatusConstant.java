@@ -14,12 +14,12 @@ public class DeletedStatusConstant {
     /**
      * 已经逻辑删除
      */
-    public static final Short TRUE = 1;
+    public static final Short DELETED = 1;
 
     /**
      * 没有逻辑删除
      */
-    public static final Short FALSE = 0;
+    public static final Short NOT_DELETED = 0;
 
 
 }
