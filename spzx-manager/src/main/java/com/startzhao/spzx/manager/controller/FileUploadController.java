@@ -2,6 +2,7 @@ package com.startzhao.spzx.manager.controller;
 
 import com.startzhao.spzx.manager.service.FileUploadService;
 import com.startzhao.spzx.model.vo.common.Result;
+import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +27,9 @@ public class FileUploadController {
     private FileUploadService fileUploadService;
 
     @PostMapping("/fileUpload")
-    public Result fileUpload(@RequestParam(value = "file")MultipartFile file) {
-        return fileUploadService.fileUpload(file);
+    public Result<String> fileUpload(@RequestParam(value = "file")MultipartFile file) {
+        String fileUrl = fileUploadService.fileUpload(file);
+        return Result.build(fileUrl, ResultCodeEnum.SUCCESS);
     }
 
 }

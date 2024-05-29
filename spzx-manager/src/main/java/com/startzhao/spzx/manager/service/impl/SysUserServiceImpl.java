@@ -2,8 +2,6 @@ package com.startzhao.spzx.manager.service.impl;
 
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.digest.DigestUtil;
-import cn.hutool.crypto.digest.MD5;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -25,7 +23,6 @@ import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import com.startzhao.spzx.model.vo.system.LoginVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -146,10 +143,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * 保存系统用户
      *
      * @param sysUser
-     * @return
      */
     @Override
-    public Result saveSysUser(SysUser sysUser) {
+    public void saveSysUser(SysUser sysUser) {
         String userName = sysUser.getUserName();
         String password = sysUser.getPassword();
         if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(password))
@@ -164,32 +160,29 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         sysUser.setCreateTime(DateTime.now());
         sysUser.setUpdateTime(DateTime.now());
         sysUserMapper.insert(sysUser);
-        return Result.build(null, ResultCodeEnum.SUCCESS);
+
     }
 
     /**
      * 修改用户信息
      *
      * @param sysUser
-     * @return
      */
     @Override
-    public Result updateSysUser(SysUser sysUser) {
+    public void updateSysUser(SysUser sysUser) {
         sysUser.setUpdateTime(DateTime.now());
         sysUserMapper.updateById(sysUser);
-        return Result.build(null, ResultCodeEnum.SUCCESS);
+
     }
 
     /**
      * 根据id 删除用户数据
      *
      * @param userId
-     * @return
      */
     @Override
-    public Result deleteSysUserById(Long userId) {
+    public void deleteSysUserById(Long userId) {
         sysUserMapper.deleteById(userId);
-        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     /**
@@ -199,11 +192,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * 2、插入新的用户角色关系
      *
      * @param assginRoleDTO
-     * @return
      */
     @Override
     @Transactional
-    public Result doAssign(AssginRoleDTO assginRoleDTO) {
+    public void doAssign(AssginRoleDTO assginRoleDTO) {
         Long userId = assginRoleDTO.getUserId();
         sysRoleUserMapper.deleteByUserId(userId);
         List<SysRoleUser> sysRoleUsers = new ArrayList<>();
@@ -216,8 +208,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             sysRoleUsers.add(sysRoleUser);
         });
 
-        sysRoleUserService.saveBatch(sysRoleUsers,100);
-        return Result.build(null,ResultCodeEnum.SUCCESS);
+        sysRoleUserService.saveBatch(sysRoleUsers, 100);
 
     }
 

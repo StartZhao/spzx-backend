@@ -80,29 +80,26 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * 添加角色
      *
      * @param sysRole
-     * @return
      */
     @Override
-    public Result saveSysRole(SysRole sysRole) {
+    public void saveSysRole(SysRole sysRole) {
         String roleName = sysRole.getRoleName();
         String roleCode = sysRole.getRoleCode();
         if (StringUtils.isEmpty(roleName) || StringUtils.isEmpty(roleCode)) {
-            return Result.build(null, ResultCodeEnum.FAIL);
+            throw new StartZhaoException(500,"角色名或角色代码未填写，请填写完整");
         }
         sysRole.setCreateTime(DateTime.now());
         sysRole.setUpdateTime(DateTime.now());
         sysRoleMapper.insert(sysRole);
-        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     /**
      * 修改角色
      *
      * @param sysRole
-     * @return
      */
     @Override
-    public Result updateSysRole(SysRole sysRole) {
+    public void updateSysRole(SysRole sysRole) {
         String roleName = sysRole.getRoleName();
         String roleCode = sysRole.getRoleCode();
         if (StringUtils.isEmpty(roleName) || StringUtils.isEmpty(roleCode)) {
@@ -110,7 +107,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         }
         sysRole.setUpdateTime(DateTime.now());
         sysRoleMapper.updateById(sysRole);
-        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     /**
@@ -119,17 +115,15 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * 故要在角色与用户没有关联时才可删除
      *
      * @param roleId
-     * @return
      */
     @Override
-    public Result deleteSysRole(Long roleId) {
+    public void deleteSysRole(Long roleId) {
 
         QueryWrapper<SysRoleUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("role_id", roleId).eq("is_deleted", 0);
         List<SysRoleUser> sysRoleUsers = sysRoleUserMapper.selectList(queryWrapper);
         if (sysRoleUsers.size() > 0) throw new StartZhaoException(500, "该角色被用户关联，若要删除该角色，请先取消用户与角色关联关系");
         sysRoleMapper.deleteById(roleId);
-        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     /**
@@ -140,7 +134,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @return
      */
     @Override
-    public Result<Map<String, List>> findAllRoles(Long userId) {
+    public Map<String, List> findAllRoles(Long userId) {
         Map<String, List> data = new HashMap<>();
         QueryWrapper<SysRole> wrapper = new QueryWrapper<>();
         wrapper.eq("is_deleted",0);
@@ -154,19 +148,19 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
             roleIds.add(sysRoleUser.getRoleId());
         });
         data.put("userRoleIds", roleIds);
-        return Result.build(data, ResultCodeEnum.SUCCESS);
+        return data;
     }
 
     /**
      * 分配菜单
      * 1.删除原先角色菜单关系
      * 2.添加现有关系,分半开关系区别插入
+     *
      * @param assignMenuDTO
-     * @return
      */
     @Override
     @Transactional
-    public Result doAssign(AssginMenuDTO assignMenuDTO) {
+    public void doAssign(AssginMenuDTO assignMenuDTO) {
         Long roleId = assignMenuDTO.getRoleId();
         sysRoleMenuMapper.deleteByRoleId(roleId);
 
@@ -182,6 +176,5 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
             sysRoleMenus.add(sysRoleMenu);
         });
         sysRoleMenuService.saveBatch(sysRoleMenus, 100);
-        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 }

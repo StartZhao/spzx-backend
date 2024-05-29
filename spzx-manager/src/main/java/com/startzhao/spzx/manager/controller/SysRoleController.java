@@ -40,27 +40,32 @@ public class SysRoleController {
 
     @PostMapping("/saveSysRole")
     public Result saveSysRole(@RequestBody SysRole sysRole) {
-        return sysRoleService.saveSysRole(sysRole);
+         sysRoleService.saveSysRole(sysRole);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 
     @PutMapping("/updateSysRole")
     public Result updateSysRole(@RequestBody SysRole sysRole) {
-        return sysRoleService.updateSysRole(sysRole);
+        sysRoleService.updateSysRole(sysRole);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 
 
     @DeleteMapping("/deleteSysRole/{roleId}")
     public Result deleteSysRole(@PathVariable(value = "roleId") Long roleId) {
-        return sysRoleService.deleteSysRole(roleId);
+         sysRoleService.deleteSysRole(roleId);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 
     @GetMapping("/findAllRoles/{userId}")
     public Result<Map<String,List>> findAllRoles(@PathVariable(value = "userId") Long userId) {
-        return sysRoleService.findAllRoles(userId);
+        Map<String, List> map = sysRoleService.findAllRoles(userId);
+        return Result.build(map,ResultCodeEnum.SUCCESS);
     }
 
     @PostMapping("/doAssign")
     public Result doAssign(@RequestBody AssginMenuDTO assignMenuDTO) {
-        return sysRoleService.doAssign(assignMenuDTO);
+         sysRoleService.doAssign(assignMenuDTO);
+        return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 }

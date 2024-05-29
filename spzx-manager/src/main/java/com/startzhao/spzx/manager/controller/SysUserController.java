@@ -34,22 +34,26 @@ public class SysUserController {
 
     @PostMapping("/saveSysUser")
     public Result saveSysUser(@RequestBody SysUser sysUser) {
-        return sysUserService.saveSysUser(sysUser);
+        sysUserService.saveSysUser(sysUser);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     @PutMapping("/updateSysUser")
     public Result updateSysUser(@RequestBody SysUser sysUser) {
-        return sysUserService.updateSysUser(sysUser);
+        sysUserService.updateSysUser(sysUser);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     @DeleteMapping("/deleteSysUserById/{userId}")
     public Result deleteSysUserById(@PathVariable Long userId) {
-        return sysUserService.deleteSysUserById(userId);
+        sysUserService.deleteSysUserById(userId);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
     @PostMapping("/doAssign")
     public Result doAssign(@RequestBody AssginRoleDTO assginRoleDTO) {
-        return sysUserService.doAssign(assginRoleDTO);
+        sysUserService.doAssign(assginRoleDTO);
+        return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
 

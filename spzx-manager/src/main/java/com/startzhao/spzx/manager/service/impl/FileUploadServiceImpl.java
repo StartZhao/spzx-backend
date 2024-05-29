@@ -4,12 +4,9 @@ import cn.hutool.core.date.DateUtil;
 import com.startzhao.spzx.common.exception.StartZhaoException;
 import com.startzhao.spzx.manager.property.MinioProperties;
 import com.startzhao.spzx.manager.service.FileUploadService;
-import com.startzhao.spzx.model.vo.common.Result;
 import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import io.minio.*;
-import io.minio.errors.MinioException;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.http.fileupload.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +38,7 @@ public class FileUploadServiceImpl implements FileUploadService {
      * @return
      */
     @Override
-    public Result fileUpload(MultipartFile file) {
+    public String fileUpload(MultipartFile file) {
 
         try {
             // 创建 minio客户端对象
@@ -69,7 +66,7 @@ public class FileUploadServiceImpl implements FileUploadService {
                             .build());
             String fileUrl = minioProperties.getEndpointUrl() + "/" + minioProperties.getBucketName() + "/" + fileName;
             log.info("FileUploadServiceImpl.fileUpload业务结束，结果{}", "头像上传成功");
-            return Result.build(fileUrl, ResultCodeEnum.SUCCESS);
+            return fileUrl;
         } catch (Exception e) {
             throw new StartZhaoException(ResultCodeEnum.SYSTEM_ERROR);
         }

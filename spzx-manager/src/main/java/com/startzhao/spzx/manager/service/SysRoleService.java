@@ -1,13 +1,10 @@
 package com.startzhao.spzx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.github.pagehelper.PageInfo;
 import com.startzhao.spzx.model.dto.system.AssginMenuDTO;
 import com.startzhao.spzx.model.dto.system.SysRoleDTO;
 import com.startzhao.spzx.model.entity.system.SysRole;
 import com.startzhao.spzx.model.vo.common.PageResult;
-import com.startzhao.spzx.model.vo.common.Result;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
@@ -39,7 +36,7 @@ public interface SysRoleService extends IService<SysRole> {
      * @param sysRole
      * @return
      */
-    Result saveSysRole(SysRole sysRole);
+    void saveSysRole(SysRole sysRole);
 
     /**
      * 修改角色
@@ -47,15 +44,14 @@ public interface SysRoleService extends IService<SysRole> {
      * @param sysRole
      * @return
      */
-    Result updateSysRole(SysRole sysRole);
+    void updateSysRole(SysRole sysRole);
 
     /**
      * 删除角色信息
      *
      * @param roleId
-     * @return
      */
-    Result deleteSysRole(Long roleId);
+    void deleteSysRole(Long roleId);
 
     /**
      * 查询所有角色
@@ -63,12 +59,12 @@ public interface SysRoleService extends IService<SysRole> {
      * @param userId
      * @return
      */
-    Result<Map<String,List>> findAllRoles(Long userId);
+    Map<String,List> findAllRoles(Long userId);
 
     /**
      * 分配菜单
+     *
      * @param assignMenuDTO
-     * @return
      */
-    Result doAssign(AssginMenuDTO assignMenuDTO);
+    void doAssign(AssginMenuDTO assignMenuDTO);
 }
