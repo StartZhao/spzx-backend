@@ -2,6 +2,7 @@ package com.startzhao.spzx.manager.service.impl;
 
 import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.startzhao.spzx.common.constant.DeletedStatusConstant;
 import com.startzhao.spzx.common.exception.StartZhaoException;
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -49,10 +51,11 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     /**
      * 保存菜单
-     *
+     * 问题：在分配菜单时如果选中添加父菜单之后，新添加的子菜单也会默认被分配该角色，这是不允许的
      * @param sysMenu
      */
     @Override
+    @Transactional
     public void saveSysMenu(SysMenu sysMenu) {
         String component = sysMenu.getComponent();
         String title = sysMenu.getTitle();
@@ -69,6 +72,22 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         sysMenu.setCreateTime(DateTime.now());
         sysMenu.setUpdateTime(DateTime.now());
         sysMenuMapper.insert(sysMenu);
+        updateSysRoleMenuIsHalf(sysMenu);
+    }
+
+    /**
+     * 为父菜单及所有祖先更新半开值
+     * @param sysMenu
+     */
+    private void updateSysRoleMenuIsHalf(SysMenu sysMenu) {
+        QueryWrapper<SysMenu> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(SysMenu::getId,sysMenu.getParentId());
+        SysMenu parentMenu = sysMenuMapper.selectOne(queryWrapper);
+        if (parentMenu == null) return;
+        UpdateWrapper<SysRoleMenu> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.lambda().eq(SysRoleMenu::getMenuId, parentMenu.getParentId()).set(SysRoleMenu::getIsHalf,1);
+        sysRoleMenuMapper.update(updateWrapper);
+        updateSysRoleMenuIsHalf(parentMenu);
     }
 
     /**
@@ -129,13 +148,11 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     @Override
     public Map<String, List> findSysRoleMenuByRoleId(Long roleId) {
         Map<String, List> map = new HashMap<>();
-        QueryWrapper<SysMenu> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("is_deleted", DeletedStatusConstant.NOT_DELETED);
-        List<SysMenu> sysMenus = sysMenuMapper.selectList(queryWrapper);
+        List<SysMenu> sysMenus = findNodes();
         map.put("sysMenuList", sysMenus);
 
         QueryWrapper<SysRoleMenu> wrapper = new QueryWrapper<>();
-        wrapper.eq("role_id", roleId).eq("is_deleted", DeletedStatusConstant.NOT_DELETED);
+        wrapper.eq("role_id", roleId).eq("is_deleted", DeletedStatusConstant.NOT_DELETED).eq("is_half",0);
         List<SysRoleMenu> sysRoleMenus = sysRoleMenuMapper.selectList(wrapper);
         List<Long> roleMenuIds = new ArrayList<>();
         sysRoleMenus.forEach(sysRoleMenu -> {
