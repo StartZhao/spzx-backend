@@ -24,12 +24,14 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
     @Update("UPDATE sys_menu SET is_deleted = 1 WHERE id = #{menuId}")
     public int deleteById(Long menuId);
 
-    @Select("SELECT DISTINCT m.*\n" +
-            "FROM sys_menu m\n" +
+    @Select("SELECT DISTINCT m.* FROM sys_menu m\n" +
             "JOIN sys_role_menu rm \n" +
             "ON rm.`menu_id` = m.`id`\n" +
             "JOIN sys_role_user ru\n" +
             "ON rm.`role_id` = ru.`role_id`\n" +
-            "WHERE user_id = 12")
+            "WHERE ru.`is_deleted` = 0\n" +
+            "AND rm.`is_deleted` = 0\n" +
+            "AND m.`is_deleted` = 0\n" +
+            "AND user_id = #{useId}")
     List<SysMenu> selectListByUserId(Long userId);
 }

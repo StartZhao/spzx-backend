@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da8aeaa0-9656-4cff-9d26-23fcf9a6bf73" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/listener/ExcelListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/CategoryMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysMenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysMenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/mapper/SysMenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/product/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/product/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/product/CategoryExcelVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/product/CategoryExcelVO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +181,7 @@
       <workItem from="1716943896022" duration="4003000" />
       <workItem from="1716969195026" duration="256000" />
       <workItem from="1716969472159" duration="199000" />
-      <workItem from="1716969832565" duration="2136000" />
+      <workItem from="1716969832565" duration="18563000" />
     </task>
     <task id="LOCAL-00001" summary="项目环境初始化&#10;用户登录功能部分完成">
       <created>1713686520390</created>
@@ -239,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716948942883</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="修复了分配菜单的相关bug">
+      <created>1716972016454</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716972016455</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,15 +280,16 @@
     <MESSAGE value="进行重新修整了项目结构" />
     <MESSAGE value="完成了菜单相关的业务" />
     <MESSAGE value="修改了下项目结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了下项目结构" />
+    <MESSAGE value="修复了分配菜单的相关bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了分配菜单的相关bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/SysRoleServiceImpl.java</url>
-          <line>164</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/CategoryController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

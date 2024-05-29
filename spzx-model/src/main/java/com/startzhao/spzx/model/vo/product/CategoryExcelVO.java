@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryExcelVo {
+public class CategoryExcelVO {
 
 	@ExcelProperty(value = "id" ,index = 0)
 	private Long id;
