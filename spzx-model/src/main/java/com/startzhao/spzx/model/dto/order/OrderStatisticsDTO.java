@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "搜索条件实体类")
-public class OrderStatisticsDto {
+public class OrderStatisticsDTO {
 
     @Schema(description = "开始时间")
     private String createTimeBegin;

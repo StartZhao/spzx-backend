@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Data
-public class OrderInfoDto {
+public class OrderInfoDTO {
 
     //送货地址id
     private Long userAddressId;
