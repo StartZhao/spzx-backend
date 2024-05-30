@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "商品搜索条件实体类")
-public class ProductDto extends BaseEntity {
+public class ProductDTO extends BaseEntity {
 
     @Schema(description = "品牌id")
     private Long brandId;

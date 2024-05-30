@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "搜索条件实体类")
-public class CategoryBrandDto {
+public class CategoryBrandDTO {
 
 	@Schema(description = "品牌id")
 	private Long brandId;
