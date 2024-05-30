@@ -11,6 +11,7 @@ package com.startzhao.spzx.model.vo.common;
  */
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class PageResult<T> implements Serializable {
 
     private Long total; //总记录数

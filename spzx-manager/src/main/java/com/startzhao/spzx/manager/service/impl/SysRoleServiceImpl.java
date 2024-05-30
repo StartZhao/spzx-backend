@@ -122,7 +122,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         QueryWrapper<SysRoleUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("role_id", roleId).eq("is_deleted", 0);
         List<SysRoleUser> sysRoleUsers = sysRoleUserMapper.selectList(queryWrapper);
-        if (sysRoleUsers.size() > 0) throw new StartZhaoException(500, "该角色被用户关联，若要删除该角色，请先取消用户与角色关联关系");
+        if (sysRoleUsers.size() > 0) {
+            throw new StartZhaoException(500, "该角色被用户关联，若要删除该角色，请先取消用户与角色关联关系");
+        }
         sysRoleMapper.deleteById(roleId);
     }
 
@@ -159,7 +161,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @param assignMenuDTO
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void doAssign(AssginMenuDTO assignMenuDTO) {
         Long roleId = assignMenuDTO.getRoleId();
         sysRoleMenuMapper.deleteByRoleId(roleId);
