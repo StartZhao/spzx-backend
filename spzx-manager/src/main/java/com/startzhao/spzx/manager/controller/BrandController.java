@@ -1,6 +1,8 @@
 package com.startzhao.spzx.manager.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.startzhao.spzx.common.log.annotation.Log;
+import com.startzhao.spzx.common.log.enums.OperatorType;
 import com.startzhao.spzx.manager.service.BrandService;
 import com.startzhao.spzx.model.entity.product.Brand;
 import com.startzhao.spzx.model.vo.common.PageResult;
@@ -28,6 +30,7 @@ public class BrandController {
     @Autowired
     private BrandService brandService;
 
+    @Log(title = "品牌列表",businessType = 0,operatorType = OperatorType.MANAGE)
     @GetMapping("/{page}/{limit}")
     public Result<PageResult<Brand>> getBrandPageList(@PathVariable Integer page, @PathVariable Integer limit) {
         PageResult<Brand> pageResult = brandService.getBrandPageList(page,limit);

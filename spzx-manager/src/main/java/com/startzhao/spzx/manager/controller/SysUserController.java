@@ -1,5 +1,6 @@
 package com.startzhao.spzx.manager.controller;
 
+import com.startzhao.spzx.common.log.annotation.Log;
 import com.startzhao.spzx.manager.service.SysUserService;
 import com.startzhao.spzx.model.dto.system.AssginRoleDTO;
 import com.startzhao.spzx.model.dto.system.SysUserDTO;
@@ -33,6 +34,7 @@ public class SysUserController {
     }
 
     @PostMapping("/saveSysUser")
+    @Log(title = "角色添加",businessType = 0)
     public Result saveSysUser(@RequestBody SysUser sysUser) {
         sysUserService.saveSysUser(sysUser);
         return Result.build(null, ResultCodeEnum.SUCCESS);

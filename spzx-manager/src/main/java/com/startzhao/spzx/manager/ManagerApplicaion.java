@@ -3,6 +3,7 @@ package com.startzhao.spzx.manager;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.startzhao.spzx.common.log.annotation.EnableLogAspect;
 import com.startzhao.spzx.manager.property.MinioProperties;
 import com.startzhao.spzx.manager.property.UserProperties;
 import org.mybatis.spring.annotation.MapperScan;
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * ClassName: ManagerApplicaion
@@ -22,9 +24,11 @@ import org.springframework.context.annotation.ComponentScan;
  * @Version 1.0
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.startzhao.spzx.manager.mapper")
+@MapperScan(basePackages = {"com.startzhao.spzx.manager.mapper","com.startzhao.spzx.common.log.mapper"})
 @ComponentScan(basePackages = {"com.startzhao.spzx.common", "com.startzhao.spzx.manager"})
 @EnableConfigurationProperties({UserProperties.class, MinioProperties.class})
+@EnableLogAspect
+@EnableAsync
 public class ManagerApplicaion {
 
     public static void main(String[] args) {
