@@ -20,6 +20,8 @@
         <module>spzx-manager</module>
         <module>spzx-common</module>
         <module>spzx-service</module>
+        <module>spzx-server-gateway</module>
+        <module>spzx-service-client</module>
     </modules>
 
     <properties>
