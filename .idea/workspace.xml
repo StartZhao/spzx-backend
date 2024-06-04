@@ -8,19 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da8aeaa0-9656-4cff-9d26-23fcf9a6bf73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/annotation/EnableLogAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/annotation/Log.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/aspect/LogAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/enums/OperatorType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/mapper/SysOperLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/service/AsyncOperLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/service/impl/AsyncOperLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/log/utils/LogUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/ProductApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/ManagerApplicaion.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/ManagerApplicaion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/SysUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +29,8 @@
         <option value="Service" />
         <option value="Enum" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -201,7 +195,8 @@
       <workItem from="1717045104053" duration="398000" />
       <workItem from="1717045518734" duration="26798000" />
       <workItem from="1717382798127" duration="2798000" />
-      <workItem from="1717427692651" duration="1705000" />
+      <workItem from="1717427692651" duration="2555000" />
+      <workItem from="1717462196003" duration="1464000" />
     </task>
     <task id="LOCAL-00001" summary="项目环境初始化&#10;用户登录功能部分完成">
       <created>1713686520390</created>
@@ -301,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717088106832</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="添加相关日志处理">
+      <created>1717430681528</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717430681529</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +335,7 @@
     <MESSAGE value="品牌管理相关业务" />
     <MESSAGE value="商品管理相关业务" />
     <MESSAGE value="订单管理相关业务&#10;订单数据统计" />
-    <option name="LAST_COMMIT_MESSAGE" value="订单管理相关业务&#10;订单数据统计" />
+    <MESSAGE value="添加相关日志处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加相关日志处理" />
   </component>
 </project>
