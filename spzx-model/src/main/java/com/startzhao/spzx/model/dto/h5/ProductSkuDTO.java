@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Schema(description = "商品列表搜索条件实体类")
-public class ProductSkuDto {
+public class ProductSkuDTO {
 
     @Schema(description = "关键字")
     private String keyword;

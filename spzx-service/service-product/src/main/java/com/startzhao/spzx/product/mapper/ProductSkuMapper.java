@@ -1,8 +1,11 @@
 package com.startzhao.spzx.product.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.startzhao.spzx.model.dto.h5.ProductSkuDTO;
 import com.startzhao.spzx.model.entity.product.ProductSku;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * ClassName: ProductSkuMapper
@@ -15,4 +18,8 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ProductSkuMapper extends BaseMapper<ProductSku> {
+
+
+
+    List<ProductSku> findByPage(ProductSkuDTO productDTO);
 }
