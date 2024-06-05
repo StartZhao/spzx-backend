@@ -109,4 +109,16 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product>imple
         productItemVO.setSpecValueList(JSON.parseArray(product.getSpecValue()));
         return productItemVO;
     }
+
+    /**
+     * 通过SkuId获得ProductSku对象
+     *
+     * @param skuId
+     * @return
+     */
+    @Override
+    public ProductSku getBySkuId(Long skuId) {
+        ProductSku productSku = productSkuMapper.selectById(skuId);
+        return productSku;
+    }
 }

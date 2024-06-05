@@ -38,4 +38,11 @@ public interface ProductService extends IService<Product> {
      * @return
      */
     ProductItemVO item(Long skuId);
+
+    /**
+     * 通过SkuId获得ProductSku对象
+     * @param skuId
+     * @return
+     */
+    ProductSku getBySkuId(Long skuId);
 }
