@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Schema(description="注册对象")
-public class UserRegisterDto {
+public class UserRegisterDTO {
 
     @Schema(description = "用户名")
     private String username;
