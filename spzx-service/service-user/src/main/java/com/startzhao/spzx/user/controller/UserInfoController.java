@@ -1,14 +1,14 @@
 package com.startzhao.spzx.user.controller;
 
+import com.startzhao.spzx.model.dto.h5.UserLoginDTO;
 import com.startzhao.spzx.model.dto.h5.UserRegisterDTO;
 import com.startzhao.spzx.model.vo.common.Result;
 import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
+import com.startzhao.spzx.model.vo.h5.UserInfoVO;
 import com.startzhao.spzx.user.service.UserInfoService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * ClassName: UserInfo
@@ -31,6 +31,19 @@ public class UserInfoController {
         return Result.build(null, ResultCodeEnum.SUCCESS);
     }
 
+    @PostMapping("/login")
+    public Result login(@RequestBody UserLoginDTO userLoginDTO) {
+        String token = userInfoService.login(userLoginDTO);
+        return Result.build(token,ResultCodeEnum.SUCCESS);
+    }
+
+
+    @GetMapping("auth/getCurrentUserInfo")
+    public Result<UserInfoVO> getCurrentUserInfo(HttpServletRequest request) {
+        String token = request.getHeader("token");
+        UserInfoVO userInfoVO = userInfoService.getCurrentUserInfo(token);
+        return Result.build(userInfoVO,ResultCodeEnum.SUCCESS);
+    }
 
 
 }

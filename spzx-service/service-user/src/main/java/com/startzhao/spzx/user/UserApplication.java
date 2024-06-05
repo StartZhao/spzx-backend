@@ -1,5 +1,6 @@
 package com.startzhao.spzx.user;
 
+import com.startzhao.spzx.common.annotation.EnableUserWebMvcConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version 1.0
  */
 @SpringBootApplication
+@EnableUserWebMvcConfiguration
 public class UserApplication {
 
     public static void main(String[] args) {
