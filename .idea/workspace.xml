@@ -8,19 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da8aeaa0-9656-4cff-9d26-23fcf9a6bf73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/controller/BrandController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/mapper/BrandMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/mapper/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/BrandService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/impl/BrandServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/resources/mappers/product/ProductSkuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/mapper/ProductDetailsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/dto/h5/ProductSkuDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/dto/h5/ProductSkuDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/mapper/ProductSkuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/mapper/ProductSkuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/h5/ProductItemVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/vo/h5/ProductItemVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/service/impl/ProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +29,8 @@
         <option value="Class" />
         <option value="Controller" />
         <option value="Service" />
-        <option value="Interface" />
         <option value="mybatis-mapper" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -244,7 +237,8 @@
       <workItem from="1717487751728" duration="5753000" />
       <workItem from="1717493692872" duration="1292000" />
       <workItem from="1717501115584" duration="6350000" />
-      <workItem from="1717516680613" duration="963000" />
+      <workItem from="1717516680613" duration="1069000" />
+      <workItem from="1717550258874" duration="3200000" />
     </task>
     <task id="LOCAL-00001" summary="项目环境初始化&#10;用户登录功能部分完成">
       <created>1713686520390</created>
@@ -372,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717514556650</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="商品显示搭建完成">
+      <created>1717517753635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717517753635</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,18 +409,10 @@
     <MESSAGE value="前台环境初步搭建" />
     <MESSAGE value="前台环境搭建补全&#10;对首页信息进行展示" />
     <MESSAGE value="前台分类缓存搭建完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="前台分类缓存搭建完成" />
+    <MESSAGE value="商品显示搭建完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品显示搭建完成" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/spzx-service/service-product/src/main/java/com/startzhao/spzx/product/controller/ProductController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="categoryList" />

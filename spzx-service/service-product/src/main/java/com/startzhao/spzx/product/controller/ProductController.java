@@ -2,12 +2,11 @@ package com.startzhao.spzx.product.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.startzhao.spzx.model.dto.h5.ProductSkuDTO;
-import com.startzhao.spzx.model.entity.product.Product;
 import com.startzhao.spzx.model.entity.product.ProductSku;
 import com.startzhao.spzx.model.vo.common.Result;
 import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
+import com.startzhao.spzx.model.vo.h5.ProductItemVO;
 import com.startzhao.spzx.product.service.ProductService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +30,11 @@ public class ProductController {
     public Result<PageInfo<ProductSku>> findByPage(@PathVariable Integer page, @PathVariable Integer limit, ProductSkuDTO productDTO) {
         PageInfo<ProductSku> pageInfo = productService.findByPage(page,limit,productDTO);
         return Result.build(pageInfo, ResultCodeEnum.SUCCESS);
+    }
+
+    @GetMapping("/item/{skuId}")
+    public Result<ProductItemVO> item(@PathVariable Long skuId) {
+        ProductItemVO productItemVO = productService.item(skuId);
+        return Result.build(productItemVO,ResultCodeEnum.SUCCESS);
     }
 }

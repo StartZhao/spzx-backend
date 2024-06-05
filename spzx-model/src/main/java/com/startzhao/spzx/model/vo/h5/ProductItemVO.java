@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Data
 @Schema(description = "商品详情对象")
-public class ProductItemVo {
+public class ProductItemVO {
 
    @Schema(description = "商品sku信息")
    private ProductSku productSku;

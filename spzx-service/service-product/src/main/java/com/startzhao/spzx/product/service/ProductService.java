@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.startzhao.spzx.model.dto.h5.ProductSkuDTO;
 import com.startzhao.spzx.model.entity.product.Product;
 import com.startzhao.spzx.model.entity.product.ProductSku;
+import com.startzhao.spzx.model.vo.h5.ProductItemVO;
 import org.apache.poi.ss.formula.functions.T;
 
 import java.util.List;
@@ -30,4 +31,11 @@ public interface ProductService extends IService<Product> {
      * @return
      */
     PageInfo<ProductSku> findByPage(Integer page, Integer limit, ProductSkuDTO productDTO);
+
+    /**
+     * 商品详情
+     * @param skuId
+     * @return
+     */
+    ProductItemVO item(Long skuId);
 }
