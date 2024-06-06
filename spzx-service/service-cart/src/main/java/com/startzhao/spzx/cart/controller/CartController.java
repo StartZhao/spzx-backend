@@ -61,6 +61,11 @@ public class CartController {
         return Result.build(null,ResultCodeEnum.SUCCESS);
     }
 
+    @GetMapping("/auth/getAllCkecked")
+    public List<CartInfo> getAllCkecked() {
+        return cartService.getAllCkecked();
+    }
+
 
 
 }

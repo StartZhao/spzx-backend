@@ -51,4 +51,10 @@ public interface CartService {
      * 清空购物车
      */
     void clearCart();
+
+    /**
+     * 获得当前用户的所有购物车
+     * @return
+     */
+    List<CartInfo> getAllCkecked();
 }
