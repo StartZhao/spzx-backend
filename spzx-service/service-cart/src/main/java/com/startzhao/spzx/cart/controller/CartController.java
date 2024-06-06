@@ -66,6 +66,12 @@ public class CartController {
         return cartService.getAllCkecked();
     }
 
+    @GetMapping(value = "/auth/deleteChecked")
+    public Result deleteChecked() {
+        cartService.deleteChecked() ;
+        return Result.build(null , ResultCodeEnum.SUCCESS) ;
+    }
+
 
 
 }

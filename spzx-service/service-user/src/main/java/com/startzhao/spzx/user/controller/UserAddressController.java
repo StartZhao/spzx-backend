@@ -6,6 +6,7 @@ import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import com.startzhao.spzx.user.service.UserAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +31,10 @@ public class UserAddressController {
     public Result<List<UserAddress>> findUserAddressList() {
         List<UserAddress> list = userAddressService.findUserAddressList();
         return Result.build(list , ResultCodeEnum.SUCCESS) ;
+    }
+
+    @GetMapping("getUserAddress/{id}")
+    public UserAddress getUserAddress(@PathVariable Long id) {
+        return userAddressService.getById(id);
     }
 }

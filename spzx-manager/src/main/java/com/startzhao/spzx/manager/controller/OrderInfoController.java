@@ -7,10 +7,9 @@ import com.startzhao.spzx.model.entity.order.OrderStatistics;
 import com.startzhao.spzx.model.vo.common.Result;
 import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import com.startzhao.spzx.model.vo.order.OrderStatisticsVO;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,4 +33,6 @@ public class OrderInfoController {
         OrderStatisticsVO orderStatisticsVO = orderInfoService.getOrderStatisticsData(orderStatisticsDTO);
         return Result.build(orderStatisticsVO, ResultCodeEnum.SUCCESS);
     }
+
+
 }

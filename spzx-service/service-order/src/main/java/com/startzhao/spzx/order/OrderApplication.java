@@ -1,6 +1,7 @@
 package com.startzhao.spzx.order;
 
 import com.startzhao.spzx.common.annotation.EnableUserTokenFeignInterceptor;
+import com.startzhao.spzx.common.annotation.EnableUserWebMvcConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -16,9 +17,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableFeignClients(basePackages = {
-        "com.startzhao.spzx.feign.cart"
+        "com.startzhao.spzx.feign.cart",
+        "com.startzhao.spzx.feign.product",
+        "com.startzhao.spzx.feign.user"
 })
 @EnableUserTokenFeignInterceptor
+@EnableUserWebMvcConfiguration
 public class OrderApplication {
 
     public static void main(String[] args) {

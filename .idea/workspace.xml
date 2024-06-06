@@ -8,30 +8,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da8aeaa0-9656-4cff-9d26-23fcf9a6bf73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/annotation/EnableUserTokenFeignInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-common/src/main/java/com/startzhao/spzx/common/feign/UserTokenFeignInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-cart-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-cart-client/src/main/java/com/startzhao/spzx/feign/cart/CartFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-order-client/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-order-client/src/main/java/com/startzhao/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/OrderApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/controller/OrderInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/mapper/OrderInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/service/OrderInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/service/impl/OrderInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/startzhao/spzx/user/controller/UserAddressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/startzhao/spzx/user/mapper/UserAddressMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/startzhao/spzx/user/service/UserAddressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/startzhao/spzx/user/service/impl/UserAddressServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/startzhao/spzx/feign/user/UserFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/mapper/OrderItemMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/mapper/OrderLogMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-product-client/src/main/java/com/startzhao/spzx/feign/product/ProductFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service-client/service-product-client/src/main/java/com/startzhao/spzx/feign/product/ProductFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/controller/OrderInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/OrderInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/OrderInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/OrderInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-manager/src/main/java/com/startzhao/spzx/manager/service/impl/OrderInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/order/OrderInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-model/src/main/java/com/startzhao/spzx/model/entity/order/OrderInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-cart-client/src/main/java/com/startzhao/spzx/feign/cart/CartFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service-client/service-cart-client/src/main/java/com/startzhao/spzx/feign/cart/CartFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service-client/service-user-client/src/main/java/com/startzhao/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/startzhao/spzx/cart/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/startzhao/spzx/cart/controller/CartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/startzhao/spzx/cart/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/startzhao/spzx/cart/service/CartService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/startzhao/spzx/cart/service/impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-cart/src/main/java/com/startzhao/spzx/cart/service/impl/CartServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spzx-service/service-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/OrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/OrderApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/controller/OrderInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/controller/OrderInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/service/OrderInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/service/OrderInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/service/impl/OrderInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-order/src/main/java/com/startzhao/spzx/order/service/impl/OrderInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/startzhao/spzx/user/controller/UserAddressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spzx-service/service-user/src/main/java/com/startzhao/spzx/user/controller/UserAddressController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +41,9 @@
         <option value="mybatis-mapper" />
         <option value="Controller" />
         <option value="Service" />
-        <option value="Interface" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -77,24 +72,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17.0.2",
-    "last_opened_file_path": "D:/Code/Project_Code/spzx/spzx-backend/spzx-backend/spzx-service/service-order/src/main/resources",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.23066843",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "spring.configuration.checksum": "d25fead93aed11b5ae946ea3c5cc649c"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17.0.2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Code/Project_Code/spzx/spzx-backend/spzx-backend/spzx-service/service-order/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.23066843&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d25fead93aed11b5ae946ea3c5cc649c&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -203,10 +198,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OrderApplication" />
         <item itemvalue="Spring Boot.ProductApplication" />
         <item itemvalue="Spring Boot.UserApplication" />
         <item itemvalue="Spring Boot.CartApplication" />
-        <item itemvalue="Spring Boot.OrderApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
       </list>
     </recent_temporary>
@@ -255,7 +250,8 @@
       <workItem from="1717550258874" duration="7475000" />
       <workItem from="1717576132449" duration="8341000" />
       <workItem from="1717595363562" duration="8702000" />
-      <workItem from="1717634634744" duration="437000" />
+      <workItem from="1717634634744" duration="2048000" />
+      <workItem from="1717659833513" duration="6921000" />
     </task>
     <task id="LOCAL-00001" summary="项目环境初始化&#10;用户登录功能部分完成">
       <created>1713686520390</created>
@@ -418,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717599563397</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="订单展示业务完成">
+      <created>1717635289777</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1717635289777</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +462,8 @@
     <MESSAGE value="用户注册功能完成" />
     <MESSAGE value="用户登录及用户信息显示完成" />
     <MESSAGE value="购物车业务开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="购物车业务开发" />
+    <MESSAGE value="订单展示业务完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="订单展示业务完成" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

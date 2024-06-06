@@ -1,6 +1,7 @@
 package com.startzhao.spzx.feign.cart;
 
 import com.startzhao.spzx.model.entity.h5.CartInfo;
+import com.startzhao.spzx.model.vo.common.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -22,4 +23,7 @@ public interface CartFeignClient
 {
     @GetMapping(value = "/api/order/cart/auth/getAllCkecked")
     List<CartInfo> getAllCkecked() ;
+
+    @GetMapping(value = "/api/order/cart/auth/deleteChecked")
+    Result deleteChecked() ;
 }

@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.startzhao.spzx.manager.mapper.OrderInfoMapper;
 import com.startzhao.spzx.manager.mapper.OrderStatisticsMapper;
 import com.startzhao.spzx.manager.service.OrderInfoService;
+import com.startzhao.spzx.model.dto.h5.OrderInfoDTO;
 import com.startzhao.spzx.model.dto.order.OrderStatisticsDTO;
 import com.startzhao.spzx.model.entity.order.OrderInfo;
+import com.startzhao.spzx.model.entity.order.OrderItem;
 import com.startzhao.spzx.model.entity.order.OrderStatistics;
 import com.startzhao.spzx.model.vo.order.OrderStatisticsVO;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +39,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     @Autowired
     private OrderStatisticsMapper orderStatisticsMapper;
 
+
     /**
      * 根据日期获取订单统计数据
      *
@@ -59,4 +62,6 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         OrderStatisticsVO orderStatisticsVO = OrderStatisticsVO.builder().dateList(dateList).amountList(amountList).build();
         return orderStatisticsVO;
     }
+
+
 }

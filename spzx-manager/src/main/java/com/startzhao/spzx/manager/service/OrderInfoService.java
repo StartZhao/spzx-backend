@@ -1,6 +1,7 @@
 package com.startzhao.spzx.manager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.startzhao.spzx.model.dto.h5.OrderInfoDTO;
 import com.startzhao.spzx.model.dto.order.OrderStatisticsDTO;
 import com.startzhao.spzx.model.entity.order.OrderInfo;
 import com.startzhao.spzx.model.vo.order.OrderStatisticsVO;
@@ -25,4 +26,6 @@ public interface OrderInfoService extends IService<OrderInfo> {
      * @return
      */
     OrderStatisticsVO getOrderStatisticsData(OrderStatisticsDTO orderStatisticsDTO);
+
+
 }

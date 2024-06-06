@@ -57,4 +57,9 @@ public interface CartService {
      * @return
      */
     List<CartInfo> getAllCkecked();
+
+    /**
+     * 清空选中的购物车
+     */
+    void deleteChecked();
 }

@@ -2,10 +2,12 @@ package com.startzhao.spzx.cart.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.startzhao.spzx.cart.service.CartService;
+import com.startzhao.spzx.common.exception.StartZhaoException;
 import com.startzhao.spzx.common.utils.AuthContextUtil;
 import com.startzhao.spzx.feign.product.ProductFeignClient;
 import com.startzhao.spzx.model.entity.h5.CartInfo;
 import com.startzhao.spzx.model.entity.product.ProductSku;
+import com.startzhao.spzx.model.vo.common.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -41,6 +43,7 @@ public class CartServiceImpl implements CartService {
 
     /**
      * 添加购物车
+     * 要判断库存是否充足
      *
      * @param skuId
      * @param skuNum
@@ -48,24 +51,34 @@ public class CartServiceImpl implements CartService {
     @Override
     public void addToCart(Long skuId, Integer skuNum) {
 
+        // 获取库存信息
+        ProductSku productSku = productFeignClient.getBySkuId(skuId);
+        Integer stockNum = productSku.getStockNum();
+
         Long userId = AuthContextUtil.getUserInfo().getId();
         String cartKey = getCartKey(userId);
         // 获取缓存对象
         Object cartInfoObj = redisTemplate.opsForHash().get(cartKey, String.valueOf(skuId));
         CartInfo cartInfo = null;
 
+
         // 商品已经在购物车
         if (cartInfoObj != null) {
+            if (cartInfo.getSkuNum() + skuNum > stockNum) {
+                throw new StartZhaoException(500, "库存不足");
+            }
             cartInfo = JSON.parseObject(cartInfoObj.toString(), CartInfo.class);
             cartInfo.setSkuNum(cartInfo.getSkuNum() + skuNum);
             cartInfo.setIsChecked(1);
             cartInfo.setUpdateTime(new Date());
         } else {
+            if (skuNum > stockNum) {
+                throw new StartZhaoException(500, "库存不足");
+            }
             // 商品不在购物车
             cartInfo = new CartInfo();
 
             // 购物车数据是从商品详情得到 {skuInfo}，通过 feign 远程调用
-            ProductSku productSku = productFeignClient.getBySkuId(skuId);
             cartInfo.setCartPrice(productSku.getSalePrice());
             cartInfo.setSkuNum(skuNum);
             cartInfo.setSkuId(skuId);
@@ -186,5 +199,20 @@ public class CartServiceImpl implements CartService {
                 .filter(cartInfo -> cartInfo.getIsChecked() == 1)
                 .collect(Collectors.toList());
         return cartInfos;
+    }
+
+    /**
+     * 清空选中的购物车
+     */
+    @Override
+    public void deleteChecked() {
+        Long userId = AuthContextUtil.getUserInfo().getId();
+        String cartKey = getCartKey(userId);
+        List<Object> objectList = redisTemplate.opsForHash().values(cartKey);       // 删除选中的购物项数据
+        if (!CollectionUtils.isEmpty(objectList)) {
+            objectList.stream().map(cartInfoJSON -> JSON.parseObject(cartInfoJSON.toString(), CartInfo.class))
+                    .filter(cartInfo -> cartInfo.getIsChecked() == 1)
+                    .forEach(cartInfo -> redisTemplate.opsForHash().delete(cartKey, String.valueOf(cartInfo.getSkuId())));
+        }
     }
 }
